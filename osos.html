@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Video Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        #videoContainer {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        #localVideo, #remoteVideo {
+            width: 320px;
+            height: 240px;
+            background-color: #000;
+            margin: 0 10px;
+        }
+        #chatContainer {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        #chatMessages {
+            height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        #chatInput {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div id="videoContainer">
+        <video id="localVideo" autoplay muted></video>
+        <video id="remoteVideo" autoplay></video>
+    </div>
+    <div id="chatContainer">
+        <div id="chatMessages"></div>
+        <input type="text" id="chatInput" placeholder="Type your message...">
+    </div>
+
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <script>
+        // WebRTC and chat functionality would go here
+        // This is a placeholder for the actual implementation
+        console.log("WebRTC and chat functionality would be implemented here");
+        
+        // For demonstration purposes only:
+        document.getElementById('chatInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                let message = this.value;
+                let chatMessages = document.getElementById('chatMessages');
+                chatMessages.innerHTML += `<p><strong>You:</strong> ${message}</p>`;
+                this.value = '';
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        });
+    </script>
+</body>
+</html>
